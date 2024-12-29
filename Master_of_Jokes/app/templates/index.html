@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master of Jokes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            Master of Jokes
+        </div>
+        
+    </header>
+    <main class="homepage">
+        <section class="welcome">
+            <h2>Welcome to the Master of Jokes!</h2>
+            <p>Share your jokes, enjoy others' humor, and spread the laughter!</p>
+        </section>
+        <section class="actions">
+            <a href="{{ url_for('auth.login') }}" class="button primary-button">Login</a>
+            <a href="{{ url_for('auth.register') }}" class="button secondary-button">Register</a>
+        </section>
+        <section class="features">
+            <h3>Features</h3>
+            <ul>
+                <li>Submit and manage your jokes</li>
+                <li>Rate and enjoy jokes shared by others</li>
+                <li>Track your joke balance and grow your humor profile</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Master of Jokes. All rights reserved.</p>
+    </footer>
+</body>
+</html>

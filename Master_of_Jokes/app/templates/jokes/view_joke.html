@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}View Joke{% endblock %}
+
+{% block content %}
+<main class="rating-page">
+    <!-- Joke Details Section -->
+    <h1>{{ joke['title'] }}</h1>
+    <div class="joke-details">
+        <p><strong>Author:</strong> {{ joke['nickname'] }}</p>
+        <p><strong>Created On:</strong> {{ joke['created_at'] }}</p>
+        <p><strong>Average Rating:</strong> {{ average_rating|round(1) }}</p>
+        <p><strong>Body:</strong> {{ joke['body'] }}</p>
+    </div>
+
+    <!-- Edit/Delete or Rating Section -->
+    {% if joke['author_id'] == user_id %}
+        <div class="rating-section">
+            <h3>Edit or Delete this Joke:</h3>
+            <form action="{{ url_for('jokes.view_joke', joke_id=joke['id']) }}" method="post">
+                <label for="body">Update Body:</label>
+                <textarea name="body" id="body" rows="4" required>{{ joke['body'] }}</textarea>
+                <div class="button-row">
+                    <button type="submit" name="update" class="btn-green">Update</button>
+                    <button type="submit" name="delete" class="btn-red" onclick="return confirm('Are you sure you want to delete this joke?')">Delete</button>
+                </div>
+    {% else %}
+        <div class="rating-section">
+            <h3>Rate this Joke (1-5):</h3>
+            <form action="{{ url_for('jokes.view_joke', joke_id=joke['id']) }}" method="post">
+                <select id="rating" name="rating" required>
+                    <option value="" disabled selected>Choose a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+                <button type="submit" name="submit_rating">Submit Rating</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <!-- Back to My Jokes Link -->
+    <div class="back-link">
+        <a href="{{ url_for('jokes.my_jokes') }}">Back to My Jokes</a>
+    </div>
+</main>
+{% endblock %}

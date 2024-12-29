@@ -1,0 +1,878 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px; 
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left; 
+}
+
+.section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Header Navigation */
+header nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+}
+
+.header-title {
+    text-align: center;
+    background-color: #333; 
+    color: white; 
+    padding: 10px 0;
+    margin-bottom: 20px; 
+    font-size: 1.8rem; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    position: relative; 
+    left: 0; 
+}
+
+/* Navigation Links */
+header nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+header nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0 10px; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+header nav .nav-links a:not(:last-child)::after {
+    content: '|'; 
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 10px;
+}
+
+header nav .nav-links a:hover {
+    text-decoration: underline;
+    transform: translateY(-1px); 
+}
+
+/* Joke Balance */
+header nav .joke-balance {
+    font-size: 0.9rem;
+    color: #4CAF50; 
+    font-weight: bold;
+    white-space: nowrap; 
+}
+
+/* Balance Section */
+.balance-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    margin-top: 5px; 
+}
+
+.balance-section .joke-balance {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 5px; 
+}
+
+.balance-section .toggle-debug {
+    font-size: 0.9rem;
+    color: white;
+    background-color: #333;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.balance-section .toggle-debug:hover {
+    background-color: #4CAF50;
+    transform: translateY(-1px);
+}
+
+
+
+/* Rating Page Container */
+main.rating-page {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+}
+
+.rating-section {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rating-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.rating-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rating-section select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+.rating-section button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.rating-section button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.rating-section a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.rating-section a:hover {
+    text-decoration: underline;
+}
+
+/* Joke Details */
+.joke-details {
+    margin-bottom: 20px;
+}
+
+.joke-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.joke-details p strong {
+    color: #333;
+}
+
+/* Joke List Container */
+ul.joke-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.joke-list li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+ul.joke-list li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Joke Title */
+ul.joke-list li h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Joke Details */
+ul.joke-list li p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+ul.joke-list li p strong {
+    color: #333;
+}
+
+/* View Joke Link */
+ul.joke-list li a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+ul.joke-list li a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* Container for Manage Jokes Table */
+.manage-jokes-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Styled Table */
+
+.styled-table .btn, .role-table .btn {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+
+
+
+/* Table Row Hover */
+.styled-table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f3f3f3;
+}
+
+/* Textarea inside Table */
+.edit-body-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.edit-body-form .form-control:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Action Buttons */
+.styled-table button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.styled-table .btn-green {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.styled-table .btn-green:hover {
+    background-color: #45a049;
+}
+
+.styled-table .btn-red {
+    background-color: #f44336;
+    color: white;
+}
+
+.styled-table .btn-red:hover {
+    background-color: #d32f2f;
+}
+
+/* Delete Button - Red */
+.styled-table .btn-danger {
+    background-color: #dc3545; 
+    color: white; 
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.styled-table .btn-danger:hover {
+    background-color: #c82333; 
+    transform: translateY(-2px); 
+}
+
+
+/* Container for Manage Balances */
+.manage-balances-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Container */
+.form-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Input and Select Fields */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+/* Submit Button */
+.btn-update {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-update:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+
+
+/* Homepage-specific styles */
+main.homepage {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+main.homepage h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+main.homepage p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.actions .button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.actions .primary-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.actions .primary-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.actions .secondary-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.actions .secondary-button:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.features {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.features h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+    font-size: 1rem;
+}
+
+.features ul li:before {
+    /* content: '✔'; */
+    color: #4CAF50;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+}
+
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Forms */
+form {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="number"], form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+
+form button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Joke Balance */
+.joke-balance {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Center align table */
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* Style table */
+
+.styled-table, .role-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.styled-table th, .role-table th,
+.styled-table td, .role-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    vertical-align: middle; 
+}
+
+.styled-table thead tr, .role-table thead tr {
+    background-color: #333;
+    color: white;
+}
+
+
+
+.role-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.role-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-green {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #218838;
+}
+
+.btn-red {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-red:hover {
+    background-color: #c82333;
+}
+
+
+/* Specific styles for Update and Delete buttons on the View Joke page */
+.rating-section button[name="update"] {
+    background-color: #2baf4a; 
+    color: white;
+}
+
+.rating-section button[name="update"]:hover {
+    background-color: #25963e; 
+}
+
+.rating-section button[name="delete"] {
+    background-color: #dc3545; /* Light Red */
+    color: white;
+}
+
+.rating-section button[name="delete"]:hover {
+    background-color: #c82333;
+}
+
+/* Ensure the Update and Delete buttons are on the same line */
+.rating-section .button-row {
+    display: flex; 
+    gap: 10px; 
+    margin-top: 10px; 
+}
+
+/* Update and Delete Buttons */
+.rating-section .button-row button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Green Update button */
+.rating-section .button-row .btn-green {
+    background-color: #28a745;
+    color: white;
+}
+
+.rating-section .button-row .btn-green:hover {
+    background-color: #218838;
+}
+
+/* Red Delete button */
+.rating-section .button-row .btn-red {
+    background-color: #dc3545;
+    color: white;
+}
+
+.rating-section .button-row .btn-red:hover {
+    background-color: #c82333;
+}
+
+
+
+/* Inline forms */
+.inline-form {
+    display: inline-block;
+    margin: 0;
+}
+
+
+/* Flash Messages */
+.flashes {
+    margin: 20px 0;
+    list-style: none;
+    padding: 0;
+}
+
+.flashes li {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.flashes .success {
+    background-color: #4CAF50;
+}
+
+.flashes .info {
+    background-color: #2196F3;
+}
+
+.flashes .warning {
+    background-color: #FF9800;
+}
+
+.flashes .danger {
+    background-color: #F44336;
+}
+
+/* Fade-out transition */
+.flash {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+/* Joke List Items */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+li a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button,
+.active-button {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+.active-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.inactive-button {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white; 
+    padding: 10px 0;
+    background-color: #333; 
+    border-radius: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    position: relative;
+    left: 0; 
+}
+
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table, form {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

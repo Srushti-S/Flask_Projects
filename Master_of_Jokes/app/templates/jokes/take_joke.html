@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Take a Joke</h2>
+
+    {% if jokes %}
+        <ul>
+            {% for joke in jokes %}
+                <li>
+                    <strong><a href="{{ url_for('jokes.view_joke', joke_id=joke['id']) }}">{{ joke['title'] }}</a></strong> 
+                    by {{ joke['author_nickname'] }} - 
+                    <small>Average Rating: {{ joke['avg_rating']|round(1) if joke['avg_rating'] is not none else "No ratings yet" }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No jokes available at the moment. Try asking someone to add a joke!</p>
+    {% endif %}
+{% endblock %}

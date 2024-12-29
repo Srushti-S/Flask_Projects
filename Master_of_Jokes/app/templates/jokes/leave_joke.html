@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Leave a Joke{% endblock %}
+
+{% block content %}
+<h2>Leave a Joke</h2>
+<p>Your Joke Balance: {{ joke_balance }}</p>
+<form action="{{ url_for('jokes.leave_joke') }}" method="post">
+    <label for="title">Title (max 10 words):</label>
+    <input type="text" name="title" id="title" required><br>
+    <label for="body">Joke:</label>
+    <textarea name="body" id="body" required></textarea><br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

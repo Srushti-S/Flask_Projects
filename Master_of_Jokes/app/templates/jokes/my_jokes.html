@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}My Jokes{% endblock %}
+
+{% block content %}
+<h2>My Jokes</h2>
+<!-- <p class="joke-balance">Your Joke Balance: {{ joke_balance }}</p> -->
+
+<ul>
+    {% for joke in jokes %}
+        <li>
+            <a href="{{ url_for('jokes.view_joke', joke_id=joke['id']) }}">
+                <strong>{{ joke['title'] }}</strong>
+            </a>
+            - Average Rating: {{ joke['avg_rating']|round(1) }}
+            {% if joke['joke_type'] == 'taken' %}
+                <small>(Taken from {{ joke['author_nickname'] }})</small>
+            {% endif %}
+        </li>
+    {% else %}
+        <p>You haven't submitted or taken any jokes yet.</p>
+    {% endfor %}
+</ul>
+
+<div>
+    <a href="{{ url_for('jokes.leave_joke') }}" class="active-button">Leave a Joke</a>
+    {% if joke_balance > 0 %}
+        <a href="{{ url_for('jokes.take_joke') }}" class="active-button">Take a Joke</a>
+    {% else %}
+        <span class="inactive-button">Take a Joke</span>
+    {% endif %}
+</div>
+{% endblock %}

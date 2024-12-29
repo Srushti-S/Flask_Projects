@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Joke{% endblock %}
+
+{% block content %}
+<h2>Edit Joke</h2>
+
+<form action="{{ url_for('jokes.edit_joke', joke_id=joke['id']) }}" method="post">
+    <p><strong>Title:</strong> {{ joke['title'] }}</p> 
+    <label for="body">Body:</label><br>
+    <textarea name="body" id="body" required>{{ joke['body'] }}</textarea><br>
+    <button type="submit">Save Changes</button>
+</form>
+
+<div>
+    <a href="{{ url_for('jokes.view_joke', joke_id=joke['id']) }}">Cancel</a>
+</div>
+{% endblock %}

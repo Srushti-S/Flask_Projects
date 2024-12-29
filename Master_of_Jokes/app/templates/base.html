@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Master of Jokes{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                {% if 'user_id' in session %}
+                    <a href="{{ url_for('auth.logout') }}">Logout</a>
+                    {% if session['role'] == 'User' %}
+                        <a href="{{ url_for('jokes.leave_joke') }}">Leave a Joke</a>
+                        <a href="{{ url_for('jokes.my_jokes') }}">My Jokes</a>
+                        <a href="{{ url_for('jokes.take_joke') }}">Take a Joke</a>
+                    {% endif %}
+    
+                    {% if session['role'] == 'Moderator' %}
+                        <a href="{{ url_for('jokes.manage_roles') }}">Manage Roles</a>
+                        <a href="{{ url_for('jokes.manage_balances') }}">Manage Balances</a>
+                        <a href="{{ url_for('jokes.manage_jokes') }}">Manage Jokes</a>
+                        <form action="{{ url_for('jokes.toggle_debug') }}" method="POST" style="display:inline;">
+                            <button type="submit" style="background:none; border:none; color:white; text-decoration:underline; cursor:pointer;">Toggle Debug</button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                    <a href="{{ url_for('auth.login') }}">Login</a>
+                    <a href="{{ url_for('auth.register') }}">Register</a>
+                {% endif %}
+            </div>   
+            {% if 'user_id' in session and 'joke_balance' in session and session['role'] == 'User' %}
+                <div class="joke-balance">Joke Balance: {{ session['joke_balance'] }}</div>
+            {% endif %}
+        </nav>
+    </header>
+    
+    
+
+    <main>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    {% if not (category == 'info' and request.endpoint == 'auth.register') %}
+                        <li class="flash {{ category }}">{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- JavaScript to Auto-Hide Flash Messages -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const flashMessages = document.querySelectorAll(".flash");
+
+            flashMessages.forEach(flash => {
+                setTimeout(() => {
+                    flash.style.transition = "opacity 0.5s ease";
+                    flash.style.opacity = "0";
+                    setTimeout(() => flash.remove(), 500); 
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
