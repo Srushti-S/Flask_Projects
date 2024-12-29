@@ -1,4 +1,4 @@
-# MOJ Flask Project
+# Master of Jokes Flask Project
 
 ## Running the Flask Application in Docker
 
