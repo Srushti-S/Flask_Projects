@@ -48,7 +48,7 @@ This web application provides an intuitive interface for browsing, searching, an
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/chicago-food-inspections.git
+git clone https://github.com/Srushti-S/Flask_Projects/tree/main/Chicago-Food-Inspections.git
 cd chicago-food-inspections
 ```
 
