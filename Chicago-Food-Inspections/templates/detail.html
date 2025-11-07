@@ -1,0 +1,246 @@
+<!doctype html>
+<html data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ f['dba_name'] }} — Detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="header-sticky">
+      <div class="container container-narrow header-inner">
+        <h3 class="title"><span class="logo">🍽️</span> {{ f['dba_name'] }}</h3>
+        <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="container container-narrow" style="margin-top:1rem;">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-container">
+            {% for category, message in messages %}
+              <article class="flash flash-{{ category }}">
+                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+                {{ message }}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Facility Info -->
+      <article class="card">
+        <header>
+          🏢 Facility Information
+          <div style="float:right; display:flex; gap:.5rem;">
+            <a href="{{ url_for('edit_facility', license_number=f['license_number']) }}" role="button" class="secondary" style="margin:0;">✏️ Edit</a>
+            <form method="post" action="{{ url_for('delete_facility', license_number=f['license_number']) }}" 
+                  onsubmit="return confirm('⚠️ Delete this facility and ALL its inspections? This cannot be undone!');" 
+                  style="display:inline;">
+              <button type="submit" class="secondary" style="margin:0; background:#b42318;">🗑️ Delete</button>
+            </form>
+          </div>
+        </header>
+        <div class="facility-details">
+          <div class="detail-row">
+            <strong>License Number:</strong> 
+            <code>{{ f['license_number'] }}</code>
+          </div>
+          <div class="detail-row">
+            <strong>Type:</strong> 
+            <span class="chip chip-info">{{ f['facility_type'] }}</span>
+          </div>
+          <div class="detail-row">
+            <strong>Address:</strong> 
+            {{ f['address'] }}, {{ f['city'] }}, {{ f['state'] }} {{ f['zip'] }}
+          </div>
+          {% if f['phone'] %}
+          <div class="detail-row">
+            <strong>Phone:</strong> 
+            <a href="tel:{{ f['phone'] }}">{{ f['phone'] }}</a>
+          </div>
+          {% endif %}
+          <div class="detail-row" style="font-size:.85rem; opacity:.7;">
+            <strong>Created:</strong> {{ f['created_at'] }} | 
+            <strong>Updated:</strong> {{ f['updated_at'] }}
+          </div>
+        </div>
+        <p style="margin-top:1rem;">
+          <a href="/" role="button" class="secondary">← Back to list</a>
+        </p>
+      </article>
+
+      <!-- Add Inspection -->
+      <article class="card" style="margin-top:1rem;">
+        <header>➕ Add New Inspection</header>
+        <form method="post" action="/inspection/new" id="inspectionForm">
+          <input type="hidden" name="license_number" value="{{ f['license_number'] }}"/>
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:.75rem;">
+            <div>
+              <label>Inspection Date <span class="required">*</span></label>
+              <input name="inspection_date" type="date" required max="{{ today }}" />
+            </div>
+            <div>
+              <label>Inspection Type <span class="required">*</span></label>
+              <select name="inspection_type" required>
+                <option value="">Select type...</option>
+                <option value="Routine">Routine</option>
+                <option value="Complaint">Complaint</option>
+                <option value="Follow-up">Follow-up</option>
+                <option value="Re-inspection">Re-inspection</option>
+              </select>
+            </div>
+            <div>
+              <label>Risk Level <span class="required">*</span></label>
+              <select name="risk" required>
+                <option value="">Select risk...</option>
+                {% for r in ['High','Medium','Low'] %}
+                  <option value="{{ r }}">{{ r }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div>
+              <label>Result <span class="required">*</span></label>
+              <select name="result" required>
+                <option value="">Select result...</option>
+                {% for r in ['Pass','Fail','Warning','No Entry'] %}
+                  <option value="{{ r }}">{{ r }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:.75rem;">
+            <label>Violations (Optional)</label>
+            <textarea name="violations_text" 
+                      placeholder="e.g., #21: Inadequate cooling; #6: Hand washing sinks blocked" 
+                      rows="2"></textarea>
+            <small>Describe any health code violations found during this inspection</small>
+          </div>
+          <button type="submit">✅ Create Inspection</button>
+        </form>
+      </article>
+
+      <!-- Inspection History -->
+      <article class="card" style="margin-top:1rem;">
+        <header>
+          📜 Inspection History
+          {% if inspections %}
+            <span class="header-badge">{{ inspections|length }} inspection(s)</span>
+          {% endif %}
+        </header>
+        {% if inspections and inspections|length>0 %}
+        <div class="table-responsive">
+          <table role="grid">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Risk</th>
+                <th>Result</th>
+                <th>Violations</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in inspections %}
+              <tr>
+                <td>{{ i['inspection_date'] }}</td>
+                <td>{{ i['inspection_type'] }}</td>
+                <td>
+                  <span class="chip
+                    {% if i['risk']=='High' %}chip-risk-high
+                    {% elif i['risk']=='Medium' %}chip-risk-medium
+                    {% else %}chip-risk-low{% endif %}">
+                    {{ i['risk'] }}
+                  </span>
+                </td>
+                <td>
+                  <span class="chip
+                    {% if i['result']=='Pass' %}chip-pass
+                    {% elif i['result']=='Fail' %}chip-fail
+                    {% elif i['result']=='Warning' %}chip-warning
+                    {% else %}chip-noentry{% endif %}">
+                    {{ i['result'] }}
+                  </span>
+                </td>
+                <td>
+                  {% if i['violations_text'] %}
+                    <details>
+                      <summary>View</summary>
+                      <div class="violations-text">{{ i['violations_text'] }}</div>
+                    </details>
+                  {% else %}
+                    <span style="opacity:.5;">None</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <div style="display:flex; gap:.25rem; justify-content:flex-end;">
+                    <a href="{{ url_for('edit_inspection', inspection_id=i['inspection_id']) }}" 
+                       role="button" 
+                       class="secondary small-btn"
+                       title="Edit inspection">
+                      ✏️
+                    </a>
+                    <form method="post" 
+                          action="/inspection/{{ i['inspection_id'] }}/delete"
+                          onsubmit="return confirm('Delete this inspection?');"
+                          style="display:inline;">
+                      <button type="submit" 
+                              class="secondary small-btn" 
+                              title="Delete inspection"
+                              style="background:#b42318;">
+                        🗑️
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Summary Stats -->
+        <div class="inspection-stats">
+          {% set total = inspections|length %}
+          {% set passes = inspections|selectattr('result', 'equalto', 'Pass')|list|length %}
+          {% set fails = inspections|selectattr('result', 'equalto', 'Fail')|list|length %}
+          {% set pass_rate = ((passes / total * 100)|round(1)) if total > 0 else 0 %}
+          
+          <div class="stat-card">
+            <div class="stat-value">{{ total }}</div>
+            <div class="stat-label">Total Inspections</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="color:#1a7f37;">{{ passes }}</div>
+            <div class="stat-label">Passed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="color:#b42318;">{{ fails }}</div>
+            <div class="stat-label">Failed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">{{ pass_rate }}%</div>
+            <div class="stat-label">Pass Rate</div>
+          </div>
+        </div>
+        {% else %}
+          <div class="empty">
+            <p>📭 No inspections recorded yet.</p>
+            <p>Add the first inspection using the form above.</p>
+          </div>
+        {% endif %}
+      </article>
+    </main>
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script>
+      // Set max date to today for inspection date input
+      const today = new Date().toISOString().split('T')[0];
+      document.querySelector('[name="inspection_date"]').setAttribute('max', today);
+      document.querySelector('[name="inspection_date"]').value = today;
+    </script>
+  </body>
+</html>

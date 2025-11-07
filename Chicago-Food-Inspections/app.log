@@ -1,0 +1,236 @@
+2025-11-06 14:52:30,822 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 14:52:30,823 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 14:52:39,318 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:39,383 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 14:52:39,387 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "GET /static/theme.js HTTP/1.1" 200 -
+2025-11-06 14:52:39,409 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:39,447 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 14:52:39,451 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:39] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-11-06 14:52:53,075 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:53] "GET /facility/LIC-1001 HTTP/1.1" 200 -
+2025-11-06 14:52:53,089 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:53] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 14:52:53,090 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:53] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 14:52:53,101 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:53] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:53,132 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:53] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:57,437 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:57,467 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 14:52:57,468 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 14:52:57,472 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "GET / HTTP/1.1" 200 -
+2025-11-06 14:52:57,480 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 14:52:57,500 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:52:57] "GET / HTTP/1.1" 200 -
+2025-11-06 14:53:02,294 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "GET /?q=&result=Pass&risk=Medium HTTP/1.1" 200 -
+2025-11-06 14:53:02,316 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 14:53:02,317 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 14:53:02,320 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "GET / HTTP/1.1" 200 -
+2025-11-06 14:53:02,328 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 14:53:02,349 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:02] "GET / HTTP/1.1" 200 -
+2025-11-06 14:53:09,869 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "GET /?q=&result=Warning&risk=Low HTTP/1.1" 200 -
+2025-11-06 14:53:09,897 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 14:53:09,897 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 14:53:09,901 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "GET / HTTP/1.1" 200 -
+2025-11-06 14:53:09,910 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 14:53:09,931 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 14:53:09] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:19,883 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "GET /?q=&result=Warning&risk=Low HTTP/1.1" 200 -
+2025-11-06 15:00:19,901 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:00:19,902 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:00:19,908 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:19,916 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:00:19,927 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:19] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:24,011 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "GET /?q=&result=Warning&risk=Low HTTP/1.1" 200 -
+2025-11-06 15:00:24,029 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:00:24,029 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:00:24,032 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:24,038 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:00:24,060 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:24] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:54,687 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:00:54,687 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:00:57,864 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "GET /?q=&result=Warning&risk=Low HTTP/1.1" 200 -
+2025-11-06 15:00:57,887 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:00:57,890 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:00:57,893 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "GET / HTTP/1.1" 200 -
+2025-11-06 15:00:57,899 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:00:57,921 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:00:57] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:01,607 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:01,627 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:01:01,628 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:01:01,632 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:01,639 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:01:01,660 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:06,437 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "GET /?q=&result=All&risk=All HTTP/1.1" 200 -
+2025-11-06 15:01:06,467 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:01:06,468 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:01:06,472 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:06,479 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:01:06,500 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:19,517 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "GET /?q=&result=Fail&risk=Medium HTTP/1.1" 200 -
+2025-11-06 15:01:19,544 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:01:19,545 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:01:19,548 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "GET / HTTP/1.1" 200 -
+2025-11-06 15:01:19,555 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:01:19,578 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:01:19] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:24,577 - __main__ - INFO - Database initialized successfully
+2025-11-06 15:03:24,577 - __main__ - INFO - Database reinitialized via /init endpoint
+2025-11-06 15:03:24,578 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "[32mGET /init HTTP/1.1[0m" 302 -
+2025-11-06 15:03:24,586 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:24,606 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:03:24,607 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:03:24,609 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:24,617 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:03:24,644 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:24] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:35,827 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "GET /?q=&result=Warning&risk=High HTTP/1.1" 200 -
+2025-11-06 15:03:35,843 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:03:35,844 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:03:35,846 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:35,854 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:03:35,871 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:45,049 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "GET /?q=&result=No+Entry&risk=All HTTP/1.1" 200 -
+2025-11-06 15:03:45,081 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:03:45,082 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:03:45,086 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:45,094 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:03:45,113 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:45] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:49,182 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "GET /?q=&result=All&risk=All HTTP/1.1" 200 -
+2025-11-06 15:03:49,216 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:03:49,217 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:03:49,220 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "GET / HTTP/1.1" 200 -
+2025-11-06 15:03:49,229 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:03:49,249 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:03:49] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:12,731 - __main__ - INFO - Database not found, initializing...
+2025-11-06 15:22:12,736 - __main__ - INFO - Database initialized successfully
+2025-11-06 15:22:12,747 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:22:12,747 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:22:22,557 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "GET /?q=&result=All&risk=All HTTP/1.1" 200 -
+2025-11-06 15:22:22,573 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:22:22,577 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:22:22,578 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:22,586 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:22:22,596 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:22] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:25,712 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:25,729 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:22:25,730 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:22:25,733 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:25,741 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:22:25,762 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:25] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:31,090 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "GET /?q=&result=Pass&risk=All HTTP/1.1" 200 -
+2025-11-06 15:22:31,106 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:22:31,107 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:22:31,110 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:31,118 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:22:31,138 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:31] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:43,231 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "GET /?q=&result=Warning&risk=All HTTP/1.1" 200 -
+2025-11-06 15:22:43,257 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:22:43,258 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:22:43,262 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "GET / HTTP/1.1" 200 -
+2025-11-06 15:22:43,269 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:22:43,290 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:22:43] "GET / HTTP/1.1" 200 -
+2025-11-06 15:24:47,395 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:24:47,395 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:24:56,457 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:56] "GET / HTTP/1.1" 200 -
+2025-11-06 15:24:56,478 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:56] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:24:56,480 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:56] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:24:56,602 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:56] "GET / HTTP/1.1" 200 -
+2025-11-06 15:24:56,991 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:56] "GET / HTTP/1.1" 200 -
+2025-11-06 15:24:57,110 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:24:57] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:25:06,535 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "GET /?q=&result=Warning&risk=Medium HTTP/1.1" 200 -
+2025-11-06 15:25:06,550 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:25:06,551 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:25:06,681 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:25:06,752 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:25:06,894 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:25:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:29:31,536 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:31] "GET /?q=&result=Warning&risk=Medium HTTP/1.1" 200 -
+2025-11-06 15:29:31,569 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:31] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:29:31,570 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:31] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:29:31,815 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:31] "GET / HTTP/1.1" 200 -
+2025-11-06 15:29:32,144 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:32] "GET / HTTP/1.1" 200 -
+2025-11-06 15:29:32,297 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:32] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:29:35,618 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:29:35,645 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:29:35,646 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:29:35,769 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:29:35,843 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:29:35,984 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:29:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:01,783 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:30:01,783 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:30:05,754 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:05] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:05,777 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:05] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:30:05,778 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:05] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:30:05,905 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:05] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:06,259 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:06,545 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:06] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:30:13,110 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:13,118 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:30:13,120 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:30:13,260 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "GET / HTTP/1.1" 200 -
+2025-11-06 15:30:13,336 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:30:13,588 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:30:13] "GET / HTTP/1.1" 200 -
+2025-11-06 15:31:14,985 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:14] "GET / HTTP/1.1" 200 -
+2025-11-06 15:31:15,010 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:15] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:31:15,010 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:15] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:31:15,141 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:15] "GET / HTTP/1.1" 200 -
+2025-11-06 15:31:15,452 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:15] "GET / HTTP/1.1" 200 -
+2025-11-06 15:31:15,731 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:31:15] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:32:06,812 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:32:06,837 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:06] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:32:06,838 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:06] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:32:06,961 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:06] "GET / HTTP/1.1" 200 -
+2025-11-06 15:32:07,277 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:07] "GET / HTTP/1.1" 200 -
+2025-11-06 15:32:07,565 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:32:07] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:32:56,800 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:32:56,800 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:33:01,217 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:01,246 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:33:01,248 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:33:01,370 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:01,709 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:01,999 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:01] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:33:29,392 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4000
+ * Running on http://10.20.226.95:4000
+2025-11-06 15:33:29,392 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:33:35,138 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:35,165 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:33:35,167 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "GET /static/theme.js HTTP/1.1" 200 -
+2025-11-06 15:33:35,290 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:35,416 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-11-06 15:33:35,642 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:35] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:33:40,525 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:40,550 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:33:40,551 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:33:40,674 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "GET / HTTP/1.1" 200 -
+2025-11-06 15:33:40,751 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:33:40,984 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:33:40] "GET / HTTP/1.1" 200 -
+2025-11-06 15:34:22,907 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:1818
+ * Running on http://10.20.226.95:1818
+2025-11-06 15:34:22,907 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 15:34:27,426 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:27] "GET / HTTP/1.1" 200 -
+2025-11-06 15:34:27,455 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:27] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:34:27,458 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:27] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:34:27,577 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:27] "GET / HTTP/1.1" 200 -
+2025-11-06 15:34:27,902 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:27] "GET / HTTP/1.1" 200 -
+2025-11-06 15:34:28,173 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:34:28] "GET /chart/monthly-fails.json HTTP/1.1" 200 -
+2025-11-06 15:36:22,872 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:22] "GET /?q=Pizza+hut&result=All&risk=All HTTP/1.1" 200 -
+2025-11-06 15:36:22,904 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:22] "[32mGET /static/styles.css HTTP/1.1[0m" 302 -
+2025-11-06 15:36:22,905 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:22] "[36mGET /static/theme.js HTTP/1.1[0m" 304 -
+2025-11-06 15:36:23,228 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:23] "GET / HTTP/1.1" 200 -
+2025-11-06 15:36:23,529 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:23] "GET / HTTP/1.1" 200 -
+2025-11-06 15:36:23,627 - werkzeug - INFO - 127.0.0.1 - - [06/Nov/2025 15:36:23] "GET /chart/monthly-fails.json HTTP/1.1" 200 -

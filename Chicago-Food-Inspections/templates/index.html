@@ -1,0 +1,276 @@
+<!doctype html>
+<html data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Food Facility Inspections</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <!-- Sticky header -->
+    <header class="header-sticky">
+    <div class="container container-narrow header-inner">
+        <h2 class="title">
+        <span class="logo">🍽️</span> 
+        Food Facility Inspections
+        </h2>
+        <!-- <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">🌙</button> -->
+    </div>
+    </header>
+
+    <main class="container container-narrow">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-container" style="margin-top:1rem;">
+            {% for category, message in messages %}
+              <article class="flash flash-{{ category }}">
+                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+                {{ message }}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Filters -->
+      <article class="card" style="margin-top:1rem;">
+        <header>🔍 Search & Filters</header>
+        <form method="get">
+          <div class="grid filters">
+            <div>
+              <label>Search</label>
+              <input name="q" placeholder="name or address" value="{{ q }}" aria-label="Search by name or address"/>
+            </div>
+            <div>
+              <label>Result</label>
+              <select name="result" aria-label="Filter by result">
+                {% for opt in ['All','Pass','Fail','Warning','No Entry'] %}
+                  <option value="{{ opt }}" {% if result==opt %}selected{% endif %}>{{ opt }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div>
+              <label>Risk</label>
+              <select name="risk" aria-label="Filter by risk">
+                {% for opt in ['All','High','Medium','Low'] %}
+                  <option value="{{ opt }}" {% if risk==opt %}selected{% endif %}>{{ opt }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div style="align-self:end;">
+              <button type="submit">🔍 Filter</button>
+            </div>
+          </div>
+        </form>
+      </article>
+
+      <!-- Chart -->
+      <article class="card" style="margin-top:1rem;">
+        <header>📊 Monthly Fail Trend (last 6 months)</header>
+        <div class="chart-wrap">
+          <canvas id="failChart"></canvas>
+          <div id="chartLoading" class="chart-loading">Loading chart...</div>
+          <div id="chartError" class="chart-error" style="display:none;">Unable to load chart data</div>
+        </div>
+      </article>
+
+      <!-- Results -->
+      <article class="card" style="margin-top:1rem;">
+        <header>
+          📋 Inspection Results
+          {% if total %}
+            <span class="header-badge">{{ total }} results</span>
+          {% endif %}
+        </header>
+        {% if rows and rows|length > 0 %}
+          <div class="table-responsive">
+            <table role="grid">
+              <thead>
+                <tr>
+                  <th>Facility</th>
+                  <th>Type</th>
+                  <th>ZIP</th>
+                  <th>Date</th>
+                  <th>Result</th>
+                  <th>Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for r in rows %}
+                <tr>
+                  <td><a href="{{ url_for('facility_detail', license_number=r['license_number']) }}">{{ r['dba_name'] }}</a></td>
+                  <td>{{ r['facility_type'] }}</td>
+                  <td>{{ r['zip'] }}</td>
+                  <td>{{ r['inspection_date'] or '—' }}</td>
+                  <td>
+                    <span class="chip
+                      {% if r['result']=='Pass' %}chip-pass
+                      {% elif r['result']=='Fail' %}chip-fail
+                      {% elif r['result']=='Warning' %}chip-warning
+                      {% elif r['result']=='No Entry' %}chip-noentry
+                      {% endif %}">
+                      {{ r['result'] or '—' }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="chip
+                      {% if r['risk']=='High' %}chip-risk-high
+                      {% elif r['risk']=='Medium' %}chip-risk-medium
+                      {% elif r['risk']=='Low' %}chip-risk-low
+                      {% endif %}">
+                      {{ r['risk'] or '—' }}
+                    </span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          {% if total_pages > 1 %}
+          <nav class="pagination" aria-label="Pagination">
+            <div class="pagination-info">
+              Page {{ page }} of {{ total_pages }}
+            </div>
+            <div class="pagination-buttons">
+              {% if page > 1 %}
+                <a href="?q={{ q }}&result={{ result }}&risk={{ risk }}&page={{ page-1 }}" role="button" class="secondary">← Previous</a>
+              {% else %}
+                <button disabled class="secondary">← Previous</button>
+              {% endif %}
+              
+              {% if page < total_pages %}
+                <a href="?q={{ q }}&result={{ result }}&risk={{ risk }}&page={{ page+1 }}" role="button" class="secondary">Next →</a>
+              {% else %}
+                <button disabled class="secondary">Next →</button>
+              {% endif %}
+            </div>
+          </nav>
+          {% endif %}
+        {% else %}
+          <div class="empty" style="text-align:center; padding:3rem 1rem;">
+            <div style="font-size:3rem; opacity:.3; margin-bottom:1rem;">📭</div>
+            <h3>No Results Found</h3>
+            <p>Try visiting <code>/init</code> to seed demo data, or add a facility below.</p>
+        </div>
+        {% endif %}
+      </article>
+
+      <!-- Create facility -->
+      <article class="card" style="margin-top:1rem;">
+        <header>➕ Add New Facility</header>
+        <form method="post" action="/facility/new" id="facilityForm">
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:.75rem;">
+            <input name="license_number" placeholder="License (e.g., LIC-1234)" required pattern="[A-Z0-9\-]+" title="Uppercase letters, numbers, and hyphens only" />
+            <input name="dba_name" placeholder="DBA name" required />
+            <input name="facility_type" placeholder="Type (e.g., Restaurant)" required />
+            <input name="address" placeholder="Address" required />
+            <input name="city" value="Chicago" required />
+            <input name="state" value="IL" required maxlength="2" />
+            <input name="zip" placeholder="ZIP (e.g., 60601)" required pattern="\d{5}(-\d{4})?" title="5 or 9 digit ZIP code" />
+            <input name="phone" placeholder="Phone (optional)" pattern="[\d\-\(\)\s]{10,}" />
+          </div>
+          <button type="submit">✅ Create Facility</button>
+        </form>
+      </article>
+
+      <footer class="app-footer">
+        <p>© 2025 Team ADT (Adith, Humaid, Srushti) | Chicago Food Inspections Database</p>
+        <p><small>Data source: Chicago Department of Public Health</small></p>
+      </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Load chart data
+      const chartCanvas = document.getElementById('failChart');
+      const chartLoading = document.getElementById('chartLoading');
+      const chartError = document.getElementById('chartError');
+
+      fetch("/chart/monthly-fails.json")
+        .then(r => {
+          if (!r.ok) throw new Error('Failed to load chart');
+          return r.json();
+        })
+        .then(d => {
+          chartLoading.style.display = 'none';
+          
+          if (!d.labels || d.labels.length === 0) {
+            chartError.textContent = 'No data available for chart';
+            chartError.style.display = 'block';
+            return;
+          }
+
+          const ctx = chartCanvas.getContext('2d');
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: d.labels,
+              datasets: [
+                { 
+                  label: 'Fails', 
+                  data: d.fails, 
+                  tension: .35,
+                  borderColor: '#b42318',
+                  backgroundColor: 'rgba(180, 35, 24, 0.1)',
+                },
+                { 
+                  label: 'Total Inspections', 
+                  data: d.total, 
+                  tension: .35,
+                  borderColor: '#1769aa',
+                  backgroundColor: 'rgba(23, 105, 170, 0.1)',
+                }
+              ]
+            },
+            options: {
+              responsive: true, 
+              maintainAspectRatio: false,
+              plugins: { 
+                legend: { position: 'bottom' },
+                tooltip: {
+                  callbacks: {
+                    afterLabel: function(context) {
+                      if (context.dataset.label === 'Fails') {
+                        const total = d.total[context.dataIndex];
+                        const fails = d.fails[context.dataIndex];
+                        const rate = ((fails / total) * 100).toFixed(1);
+                        return `Fail rate: ${rate}%`;
+                      }
+                    }
+                  }
+                }
+              },
+              interaction: { mode: 'index', intersect: false }
+            }
+          });
+        })
+        .catch(err => {
+          console.error('Chart error:', err);
+          chartLoading.style.display = 'none';
+          chartError.style.display = 'block';
+        });
+
+      // Form validation enhancement
+      document.getElementById('facilityForm').addEventListener('submit', function(e) {
+        const licenseInput = this.querySelector('[name="license_number"]');
+        const license = licenseInput.value.toUpperCase();
+        licenseInput.value = license;
+        
+        // Basic validation feedback
+        const zipInput = this.querySelector('[name="zip"]');
+        const zipPattern = /^\d{5}(-\d{4})?$/;
+        if (!zipPattern.test(zipInput.value)) {
+          alert('Please enter a valid ZIP code (e.g., 60601 or 60601-1234)');
+          e.preventDefault();
+          zipInput.focus();
+          return false;
+        }
+      });
+    </script>
+  </body>
+</html>

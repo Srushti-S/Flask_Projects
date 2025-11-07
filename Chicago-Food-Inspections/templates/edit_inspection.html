@@ -1,0 +1,130 @@
+<!doctype html>
+<html data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Inspection</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="header-sticky">
+      <div class="container container-narrow header-inner">
+        <h3 class="title"><span class="logo">✏️</span> Edit Inspection</h3>
+        <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="container container-narrow" style="margin-top:1rem;">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-container">
+            {% for category, message in messages %}
+              <article class="flash flash-{{ category }}">
+                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+                {{ message }}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <article class="card">
+        <header>Edit Inspection #{{ inspection['inspection_id'] }}</header>
+        <form method="post">
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:.75rem;">
+            <div>
+              <label>Facility License</label>
+              <input value="{{ inspection['license_number'] }}" disabled />
+              <small>Cannot be changed</small>
+            </div>
+
+            <div>
+              <label>Inspection Date <span class="required">*</span></label>
+              <input name="inspection_date" 
+                     type="date" 
+                     value="{{ inspection['inspection_date'] }}" 
+                     required 
+                     max="{{ today }}" />
+            </div>
+            
+            <div>
+              <label>Inspection Type <span class="required">*</span></label>
+              <select name="inspection_type" required>
+                <option value="">Select type...</option>
+                {% for type in ['Routine', 'Complaint', 'Follow-up', 'Re-inspection'] %}
+                  <option value="{{ type }}" {% if inspection['inspection_type']==type %}selected{% endif %}>
+                    {{ type }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            
+            <div>
+              <label>Risk Level <span class="required">*</span></label>
+              <select name="risk" required>
+                <option value="">Select risk...</option>
+                {% for r in ['High','Medium','Low'] %}
+                  <option value="{{ r }}" {% if inspection['risk']==r %}selected{% endif %}>
+                    {{ r }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+            
+            <div>
+              <label>Result <span class="required">*</span></label>
+              <select name="result" required>
+                <option value="">Select result...</option>
+                {% for r in ['Pass','Fail','Warning','No Entry'] %}
+                  <option value="{{ r }}" {% if inspection['result']==r %}selected{% endif %}>
+                    {{ r }}
+                  </option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:.75rem;">
+            <label>Violations Text</label>
+            <textarea name="violations_text" 
+                      rows="4" 
+                      placeholder="e.g., #21: Inadequate cooling; #6: Hand washing sinks blocked">{{ inspection['violations_text'] or '' }}</textarea>
+            <small>Describe any health code violations found during this inspection</small>
+          </div>
+
+          <div style="margin-top:1rem; font-size:.85rem; opacity:.7;">
+            <strong>Created:</strong> {{ inspection['created_at'] }} | 
+            <strong>Last Updated:</strong> {{ inspection['updated_at'] }}
+          </div>
+
+          <div style="margin-top:1.5rem; display:flex; gap:.5rem; justify-content:space-between;">
+            <a href="{{ url_for('facility_detail', license_number=inspection['license_number']) }}" 
+               role="button" 
+               class="secondary">
+              ← Cancel
+            </a>
+            <button type="submit">💾 Save Changes</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="card" style="margin-top:1rem; background:rgba(180,35,24,0.1); border-color:#b42318;">
+        <header style="color:#ff6b6b;">⚠️ Danger Zone</header>
+        <p>Delete this inspection record. This action cannot be undone.</p>
+        <form method="post" action="{{ url_for('delete_inspection', inspection_id=inspection['inspection_id']) }}"
+              onsubmit="return confirm('⚠️ Delete this inspection? This cannot be undone!');">
+          <button type="submit" style="background:#b42318;">🗑️ Delete Inspection</button>
+        </form>
+      </article>
+    </main>
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    <script>
+      // Set max date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.querySelector('[name="inspection_date"]').setAttribute('max', today);
+    </script>
+  </body>
+</html>

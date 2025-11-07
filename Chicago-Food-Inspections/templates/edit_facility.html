@@ -1,0 +1,116 @@
+<!doctype html>
+<html data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit {{ f['dba_name'] }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="header-sticky">
+      <div class="container container-narrow header-inner">
+        <h3 class="title"><span class="logo">✏️</span> Edit Facility</h3>
+        <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="container container-narrow" style="margin-top:1rem;">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-container">
+            {% for category, message in messages %}
+              <article class="flash flash-{{ category }}">
+                <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+                {{ message }}
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <article class="card">
+        <header>Edit Facility: {{ f['dba_name'] }}</header>
+        <form method="post">
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:.75rem;">
+            <div>
+              <label>License Number</label>
+              <input value="{{ f['license_number'] }}" disabled />
+              <small>License numbers cannot be changed</small>
+            </div>
+            
+            <div>
+              <label>DBA Name <span class="required">*</span></label>
+              <input name="dba_name" value="{{ f['dba_name'] }}" required />
+            </div>
+            
+            <div>
+              <label>Facility Type <span class="required">*</span></label>
+              <input name="facility_type" value="{{ f['facility_type'] }}" required 
+                     list="facility-types" />
+              <datalist id="facility-types">
+                <option value="Restaurant">
+                <option value="Grocery Store">
+                <option value="Bakery">
+                <option value="Coffee Shop">
+                <option value="Food Truck">
+                <option value="Cafeteria">
+              </datalist>
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+              <label>Address <span class="required">*</span></label>
+              <input name="address" value="{{ f['address'] }}" required />
+            </div>
+            
+            <div>
+              <label>City <span class="required">*</span></label>
+              <input name="city" value="{{ f['city'] }}" required />
+            </div>
+            
+            <div>
+              <label>State <span class="required">*</span></label>
+              <input name="state" value="{{ f['state'] }}" required maxlength="2" />
+            </div>
+            
+            <div>
+              <label>ZIP Code <span class="required">*</span></label>
+              <input name="zip" value="{{ f['zip'] }}" required 
+                     pattern="\d{5}(-\d{4})?" 
+                     title="5 or 9 digit ZIP code" />
+            </div>
+            
+            <div>
+              <label>Phone</label>
+              <input name="phone" value="{{ f['phone'] or '' }}" 
+                     pattern="[\d\-\(\)\s]{10,}" 
+                     placeholder="(312) 555-0101" />
+              <small>Optional</small>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem; display:flex; gap:.5rem; justify-content:space-between;">
+            <a href="{{ url_for('facility_detail', license_number=f['license_number']) }}" 
+               role="button" 
+               class="secondary">
+              ← Cancel
+            </a>
+            <button type="submit">💾 Save Changes</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="card" style="margin-top:1rem; background:rgba(180,35,24,0.1); border-color:#b42318;">
+        <header style="color:#ff6b6b;">⚠️ Danger Zone</header>
+        <p>Deleting this facility will also delete all associated inspections. This action cannot be undone.</p>
+        <form method="post" action="{{ url_for('delete_facility', license_number=f['license_number']) }}"
+              onsubmit="return confirm('⚠️ Are you absolutely sure? This will delete the facility and ALL its inspections!');">
+          <button type="submit" style="background:#b42318;">🗑️ Delete Facility</button>
+        </form>
+      </article>
+    </main>
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+  </body>
+</html>
